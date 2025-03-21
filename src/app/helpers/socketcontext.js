@@ -15,8 +15,8 @@ const SocketProvider = ({ children }) => {
 
     useEffect(() => {
         const newSocket = io("https://chatapp-backend-o1si.onrender.com", {
-            transports: ["websocket", "polling"], 
-            withCredentials: true, 
+            transports: ["websocket"],
+            withCredentials: true,
         });
 
         console.log("Frontend: Trying to connect to socket...");
