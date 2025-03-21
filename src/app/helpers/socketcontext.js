@@ -14,7 +14,10 @@ const SocketProvider = ({ children }) => {
     const [myPeerId, setMyPeerId] = useState(null);
 
     useEffect(() => {
-        const newSocket = io("https://chatapp-backend-delta.vercel.app");
+        const newSocket = io("https://chatapp-backend-delta.vercel.app", {
+            transports: ["websocket", "polling"], 
+            withCredentials: true, 
+        });
 
         console.log("Frontend: Trying to connect to socket...");
         newSocket.on("connect", () => {
@@ -34,10 +37,10 @@ const SocketProvider = ({ children }) => {
 
     useEffect(() => {
         const peerConnection = new Peer({
-            host: "localhost",
-            port: 9000,
+            host: "chatapp-backend-delta.vercel.app",
+            secure: true,
             path: '/peerjs'
-        })
+        });
 
         peerConnection.on('open', (id) => {
             console.log('my peer id', id);

@@ -8,7 +8,14 @@ const Sidebar = ({ selectedUser, setSelectedUser }) => {
     const [users, setUsers] = useState([]);
     const { socket } = useSocketContext();
     const [onlineUsers, setOnlineUsers] = useState([]);
-    const userId = localStorage.getItem("userId");
+    const [userId, setUserId] = useState(null);
+
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            const storedUserId = localStorage.getItem("userId");
+            setUserId(storedUserId);
+        }
+    }, []);
 
     useEffect(() => {
         const fetchUsers = async () => {

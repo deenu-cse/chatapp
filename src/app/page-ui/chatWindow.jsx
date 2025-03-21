@@ -20,7 +20,6 @@ const formatTimestamp = (timestamp) => {
 const ChatWindow = ({ selectedUser }) => {
     const [message, setMessage] = useState("");
     const [allMessage, setAllMessage] = useState([]);
-    const userId = localStorage.getItem("userId");
     const { socket, peer, myPeerId } = useSocketContext();
     const messagesEndRef = useRef(null);
     const [onlineUsers, setOnlineUsers] = useState([]);
@@ -28,6 +27,14 @@ const ChatWindow = ({ selectedUser }) => {
     const [remotePeerId, setRemotePeerId] = useState(null);
     const myVideoRef = useRef(null);
     const remoteVideoRef = useRef(null);
+    const [userId, setUserId] = useState(null);
+
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            const storedUserId = localStorage.getItem("userId");
+            setUserId(storedUserId);
+        }
+    }, []);
 
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
