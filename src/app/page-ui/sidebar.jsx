@@ -7,8 +7,8 @@ import { useSocketContext } from "../helpers/socketcontext";
 const Sidebar = ({ selectedUser, setSelectedUser }) => {
     const [users, setUsers] = useState([]);
     const { socket } = useSocketContext();
-    const userId = localStorage.getItem("userId");
     const [onlineUsers, setOnlineUsers] = useState([]);
+    const userId = localStorage.getItem("userId");
 
     useEffect(() => {
         const fetchUsers = async () => {
