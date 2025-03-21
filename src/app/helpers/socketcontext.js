@@ -14,7 +14,7 @@ const SocketProvider = ({ children }) => {
     const [myPeerId, setMyPeerId] = useState(null);
 
     useEffect(() => {
-        const newSocket = io("https://chatapp-backend-delta.vercel.app", {
+        const newSocket = io("https://chatapp-backend-o1si.onrender.com", {
             transports: ["websocket", "polling"], 
             withCredentials: true, 
         });

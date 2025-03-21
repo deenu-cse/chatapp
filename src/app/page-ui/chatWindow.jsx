@@ -63,7 +63,7 @@ const ChatWindow = ({ selectedUser }) => {
         };
 
         try {
-            await axios.post(`https://chatapp-backend-delta.vercel.app/sendmsg/${selectedUser._id}`, {
+            await axios.post(`https://chatapp-backend-o1si.onrender.com/sendmsg/${selectedUser._id}`, {
                 userId,
                 message,
             });
@@ -104,7 +104,7 @@ const ChatWindow = ({ selectedUser }) => {
     useEffect(() => {
         const fetchMsg = async () => {
             try {
-                const response = await axios.get(`https://chatapp-backend-delta.vercel.app/getmsg/${selectedUser._id}`, {
+                const response = await axios.get(`https://chatapp-backend-o1si.onrender.com/getmsg/${selectedUser._id}`, {
                     params: { userId },
                 });
                 setAllMessage(response.data);

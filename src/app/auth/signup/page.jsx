@@ -13,7 +13,7 @@ const SignupForm = () => {
         setError('');
 
         try {
-            const response = await axios.post('https://chatapp-backend-delta.vercel.app/signup', {
+            const response = await axios.post('https://chatapp-backend-o1si.onrender.com/signup', {
                 username,
                 email,
                 password,

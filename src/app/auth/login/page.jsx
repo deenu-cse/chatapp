@@ -12,7 +12,7 @@ const LoginForm = () => {
         setError('');
 
         try {
-            const response = await axios.post('https://chatapp-backend-delta.vercel.app/login', {
+            const response = await axios.post('https://chatapp-backend-o1si.onrender.com/login', {
                 email,
                 password,
             },

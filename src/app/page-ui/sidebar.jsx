@@ -8,7 +8,7 @@ const Sidebar = ({ selectedUser, setSelectedUser }) => {
     const [users, setUsers] = useState([]);
     const { socket } = useSocketContext();
     const [onlineUsers, setOnlineUsers] = useState([]);
-    const [userId, setUserId] = useState(null);
+    const [userId, setUserId] = useState(null);  
 
     useEffect(() => {
         if (typeof window !== "undefined") {
@@ -20,7 +20,7 @@ const Sidebar = ({ selectedUser, setSelectedUser }) => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await axios.get('https://chatapp-backend-delta.vercel.app/getallusers', {
+                const response = await axios.get('https://chatapp-backend-o1si.onrender.com/getallusers', {
                     params: { userId }
                 });
                 setUsers(response.data);
