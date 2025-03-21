@@ -37,7 +37,7 @@ const SocketProvider = ({ children }) => {
 
     useEffect(() => {
         const peerConnection = new Peer({
-            host: "chatapp-backend-delta.vercel.app",
+            host: "chatapp-backend-o1si.onrender.com",
             secure: true,
             path: '/peerjs'
         });
